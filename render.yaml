@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: pricebot
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: GOOGLE_SHEET_NAME
+        value: "Цены"
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
